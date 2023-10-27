@@ -42,7 +42,7 @@ div.sticky {
 }
 
 #customnavbar {
-    background-color: rgba(17, 17, 17, 0.4);
+    background-color: rgba(17, 17, 17, 0.5);
     z-index: 100;
     position: fixed;
 }
@@ -60,10 +60,10 @@ a:hover, a:active{
 }
 
 .dropdown-menu {
-    background-color: rgba(17, 17, 17, 0.3);
+    background-color: rgba(17, 17, 17, 0.5);
     margin: 10px;
     margin-top: 10px;
-    transform: translate(-36%, 4%);
+    transform: translate(-36%, 10%);
 }
 
 section {
@@ -120,9 +120,9 @@ section {
 }
 
 #bootstraplogo {
-  height: 50px;
+  height: 60px;
   top: 50%;
-  transform: translateY(-38%);
+  transform: translateY(-17%);
 }
 
 .FadeUp{
@@ -146,4 +146,8 @@ section {
 .smallportrait {
   width: 300px;
   height: 300px;
+}
+
+.smalink{
+  color: white;
 }

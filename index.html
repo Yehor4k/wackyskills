@@ -18,18 +18,18 @@
             </video>
             <nav class="container-fluid navbar sticky-top" id="customnavbar">
                 <div class="container-sm">
-                    <a class="navbar-brand" href="#">Wacky Skills</a>
+                    <a id="link" class="navbar-brand" href="#">Wacky Skills</a>
                     <div class="float-end" id="horizontal_list">
-                        <a href="#header">Home</a>
-                        <a href="#first_section">Bootstrap</a>
-                        <a href="#second_section">About</a>
+                        <a id="link" href="#header">Home</a>
+                        <a id="link" href="#first_section">Bootstrap</a>
+                        <a id="link" href="#second_section">About</a>
                     </div>
                     <div class="dropdown" id="dropdown_menu">
-                        <button class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">dropdown</button>
+                        <button class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false" style="color: white;">dropdown</button>
                         <ul class="dropdown-menu" id="dropdown_menu_background">
-                            <li><a class="dropdown-item" href="#header">Home</a></li>
-                            <li><a class="dropdown-item" href="#first_section">Bootstrap</a></li>
-                            <li><a class="dropdown-item" href="#second_section">About</a></li>
+                            <li><a id="link" class="dropdown-item" href="#header">Home</a></li>
+                            <li><a id="link" class="dropdown-item" href="#first_section">Bootstrap</a></li>
+                            <li><a id="link" class="dropdown-item" href="#second_section">About</a></li>
                         </ul>
                     </div>
                 </div> 
@@ -84,8 +84,8 @@
         dropdown_menu_background.style.backgroundColor = 'rgba(17,17,17,0.8)';
       } else {
         navbar.style.transition = 'background-color 0.5s ease-in';
-        navbar.style.backgroundColor = 'rgba(17,17,17,0.4)';
-        dropdown_menu_background.style.backgroundColor = 'rgba(17,17,17,0.4)';
+        navbar.style.backgroundColor = 'rgba(17,17,17,0.5)';
+        dropdown_menu_background.style.backgroundColor = 'rgba(17,17,17,0.5)';
       }
     });
 
@@ -94,15 +94,18 @@
         var dropdown_menu = document.getElementById("dropdown_menu");
         var horizontal_list = document.getElementById("horizontal_list");
         const portrait = document.getElementById("portrait");
+        const links = document.getElementById("link");
 
         if (window_width < 1300) {
             horizontal_list.style.display = "none";
             dropdown_menu.style.display = "block";
-            portrait.classList.add("smallportrait");          
+            portrait.classList.add("smallportrait");
+            links.classList.add("smalink");        
         } else {
             horizontal_list.style.display = "block";
             dropdown_menu.style.display = "none";
             portrait.classList.remove("smallportrait");
+            links.classList.remove("smalink");
         }
     }
 
