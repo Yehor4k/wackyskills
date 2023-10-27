@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wacky Skills</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
+    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+</head>
+<body class="body">
+    <header id="header">
+        <div class="video-wrapper">
+            <video playsinline autoplay muted loop>
+                <source src="images/video.mp4" type="video/mp4">
+            </video>
+            <nav class="container-fluid navbar sticky-top" id="customnavbar">
+                <div class="container-sm">
+                    <a class="navbar-brand" href="#">Wacky Skills</a>
+                    <div class="float-end" id="horizontal_list">
+                        <a href="#header">Home</a>
+                        <a href="#first_section">Bootstrap</a>
+                        <a href="#second_section">About</a>
+                    </div>
+                    <div class="dropdown" id="dropdown_menu">
+                        <button class="btn dropdown-toggle" data-bs-toggle="dropdown" type="button" aria-expanded="false">dropdown</button>
+                        <ul class="dropdown-menu" id="dropdown_menu_background">
+                            <li><a class="dropdown-item" href="#header">Home</a></li>
+                            <li><a class="dropdown-item" href="#first_section">Bootstrap</a></li>
+                            <li><a class="dropdown-item" href="#second_section">About</a></li>
+                        </ul>
+                    </div>
+                </div> 
+            </nav>
+            <div class="header formate">
+                <h1 style="text-shadow: 2px 2px 2px black;" id="headtext"></h1>
+            </div>
+        </div>
+    </header>
+    <div class="container" id="gap"></div>
+    <section class="align-items-center d-flex justify-content-center myanimation" id="first_section" style="height: 1000px;">
+        <div class="container my-5 FadeUp" id="first_container">
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg">
+              <div class="col-lg-7 p-3 p-lg-5 pt-lg-3">
+                <img src="images/bootstrap-5-1.svg" id="bootstraplogo">
+                <span class="display-4 fw-bold lh-1">ootstrap 5.3</span>
+                <p class="lead">This website was built with bootstrap 5.3</p>
+              </div>
+              <div class="col-lg-4 offset-lg-1 p-0 overflow-hidden">
+                  <img class="rounded-3" src="images/code.png" alt="" width="720" height="700px">
+              </div>
+            </div>
+        </div>
+    </section>
+    <div class="container" id="gap"></div>
+    <section class="align-items-center d-flex justify-content-center" id="second_section" style="height: 1000px;">
+        <div class="container my-5 FadeUp" id="second_container">
+            <div class="row p-4 pb-0 pe-lg-0 pt-lg-5 align-items-center rounded-3 shadow-lg">
+              <div class="col-sm p-lg-5 pt-lg-3">
+                <span class="display-4 fw-bold lh-1">Yehor (Web Designer)</span>
+                <p class="lead">"Now I am become CSS, the designer of websites."</p>
+              </div>
+              <div class="col-sm-7 overflow-hidden align-items-center d-flex justify-content-center">
+                  <img class="portrait" src="images/portrait.png" alt="" width="720" height="720" id="portrait">
+              </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p class="text-center align-items-center d-flex justify-content-center">©&nbsp;2023-2024</p>
+    </footer>
+</body>
+<script>
+    window.addEventListener('scroll', function () {
+      var navbar = document.getElementById("customnavbar");
+      var scrollPosition = window.scrollY;
+      var dropdown_menu_background = document.getElementById("dropdown_menu_background");
+
+      if (scrollPosition > 0) {
+        navbar.style.transition = 'background-color 0.5s ease-out';
+        navbar.style.backgroundColor = 'rgba(17,17,17,0.8)';
+        dropdown_menu_background.style.backgroundColor = 'rgba(17,17,17,0.8)';
+      } else {
+        navbar.style.transition = 'background-color 0.5s ease-in';
+        navbar.style.backgroundColor = 'rgba(17,17,17,0.4)';
+        dropdown_menu_background.style.backgroundColor = 'rgba(17,17,17,0.4)';
+      }
+    });
+
+    function updateLayout() {
+        var window_width = window.innerWidth;
+        var dropdown_menu = document.getElementById("dropdown_menu");
+        var horizontal_list = document.getElementById("horizontal_list");
+        const portrait = document.getElementById("portrait");
+
+        if (window_width < 1300) {
+            horizontal_list.style.display = "none";
+            dropdown_menu.style.display = "block";
+            portrait.classList.add("smallportrait");          
+        } else {
+            horizontal_list.style.display = "block";
+            dropdown_menu.style.display = "none";
+            portrait.classList.remove("smallportrait");
+        }
+    }
+
+    // Initial call to set the initial state
+    updateLayout();
+
+    // Attach the event listener to window resize
+    window.addEventListener('resize', updateLayout);
+
+    function reveal() {
+        var reveals = document.querySelectorAll(".FadeUp");
+        for (var i = 0; i < reveals.length; i++) {
+            var windowHeight = window.innerHeight;
+            var elementTop = reveals[i].getBoundingClientRect().top;
+            var elementVisible = 150;
+            if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+            } else {
+            reveals[i].classList.remove("active");
+            }
+        }
+    }
+
+    window.addEventListener("scroll", reveal);
+
+    // To check the scroll position on page load
+    reveal();
+
+    var app = document.getElementById('headtext');
+
+    var typewriter = new Typewriter(app, {
+    loop: true,
+    delay: 120,
+    });
+
+    typewriter
+    .pauseFor(900)
+    .typeString('Цудсщьу ещ')
+    .pauseFor(300)
+    .deleteChars(10)
+    .typeString('Welcome to <strong>Wacky Skills</strong>!')
+    .pauseFor(10000)
+    .start();
+
+</script>
+</html>
